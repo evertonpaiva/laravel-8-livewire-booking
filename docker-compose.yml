@@ -8,7 +8,7 @@ services:
             args:
                 WWWGROUP: '${WWWGROUP}'
         image: sail-8.0/app
-        container_name: laravel-tickets-web
+        container_name: laravel-booking-web
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -45,7 +45,7 @@ services:
     #            timeout: 5s
     pgsql:
         image: postgres:13
-        container_name: laravel-tickets-db
+        container_name: laravel-booking-db
         restart: always
         ports:
             - '${FORWARD_DB_PORT:-5432}:5432'
@@ -55,7 +55,7 @@ services:
             POSTGRES_USER: '${DB_USERNAME}'
             POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
         volumes:
-            - '~/postgres/laravel-8-api-livewire-tickets:/var/lib/postgresql/data'
+            - '~/postgres/laravel-8-api-livewire-booking:/var/lib/postgresql/data'
         networks:
             - sail
         healthcheck:

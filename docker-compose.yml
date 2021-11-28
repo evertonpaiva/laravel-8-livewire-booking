@@ -9,6 +9,7 @@ services:
                 WWWGROUP: '${WWWGROUP}'
         image: sail-8.0/app
         container_name: laravel-booking-web
+        restart: always
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:

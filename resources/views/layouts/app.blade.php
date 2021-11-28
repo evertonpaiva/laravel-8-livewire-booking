@@ -14,6 +14,8 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
+
     <livewire:styles />
 </head>
 <body class="hold-transition sidebar-mini">
@@ -55,16 +57,30 @@
 <!-- Bootstrap 4 -->
 <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src=""{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
+
+<script src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
+
+<script>
+    $(document).ready(function(){
+        toastr.options = {
+            "positionClass": "toast-bottom-right",
+            "progressBar": true,
+        };
+
+        window.addEventListener('hide-form', event => {
+            $('#form').modal('hide');
+            toastr.success(event.detail.message, 'Sucess!');
+        });
+    });
+</script>
 
 <script>
     window.addEventListener('show-form', event => {
         $('#form').modal('show');
     });
 
-    window.addEventListener('hide-form', event => {
-        $('#form').modal('hide');
-    });
+
 </script>
 
 <livewire:scripts />

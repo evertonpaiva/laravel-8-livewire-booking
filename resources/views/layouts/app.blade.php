@@ -80,7 +80,14 @@
         $('#form').modal('show');
     });
 
+    window.addEventListener('show-delete-modal', event => {
+        $('#confirmationModal').modal('show');
+    });
 
+    window.addEventListener('hide-delete-modal', event => {
+        $('#confirmationModal').modal('hide');
+        toastr.success(event.detail.message, 'Sucess!');
+    });
 </script>
 
 <livewire:scripts />

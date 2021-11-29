@@ -14,9 +14,14 @@ class ListUsers extends Component
 
     public $showEditModal = false;
 
+    public $userIdBeingRemoved = null;
+
     public function addNew()
     {
+        $this->state = [];
+
         $this->showEditModal = false;
+
         $this->dispatchBrowserEvent('show-form');
     }
 
@@ -31,8 +36,6 @@ class ListUsers extends Component
         $validatedData['password'] = bcrypt($validatedData['password']);
 
         User::create($validatedData);
-
-        //session()->flash('message', 'User added successfully!');
 
         $this->dispatchBrowserEvent('hide-form', [
             'message' => 'User added successfully!'
@@ -67,6 +70,23 @@ class ListUsers extends Component
         $this->dispatchBrowserEvent('hide-form', [
             'message' => 'User updated successfully!'
         ]);
+    }
+
+    public function confirmUserRemoval($userId)
+    {
+        $this->userIdBeingRemoved = $userId;
+
+        $this->dispatchBrowserEvent('show-delete-modal');
+    }
+
+    public function deleteUser()
+    {
+        $user = User::findOrFail($this->userIdBeingRemoved);
+
+        $user->delete();
+
+        $this->dispatchBrowserEvent('hide-delete-modal', [
+            'message' => 'User deleted successfully!']);
     }
 
     public function render()

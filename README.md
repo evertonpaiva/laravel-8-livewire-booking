@@ -24,3 +24,5 @@ Tutorial:
 * [Parte 10](https://www.youtube.com/watch?v=RoSR5Wjk7ZE&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=10)
 * [Parte 11](https://www.youtube.com/watch?v=Kdu6i42rT5U&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=11)
 * [Parte 12](https://www.youtube.com/watch?v=71RvYkqbUOM&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=12)
+* [Parte 13](https://www.youtube.com/watch?v=b4HnKk8OUxw&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=13)
+* [Parte 14](https://www.youtube.com/watch?v=8mS0QGwsf58&list=PLGg3vnFos8GMxYSWRBce3LH_SREan7my8&index=14)

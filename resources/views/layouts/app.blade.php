@@ -14,7 +14,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
 
     <livewire:styles />
 </head>
@@ -61,6 +61,10 @@
 
 <script src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
 
+<script src="{{ asset('backend/plugins/moment/moment.min.js') }}"></script>
+
+<script src="{{ asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+
 <script>
     $(document).ready(function(){
         toastr.options = {
@@ -87,6 +91,28 @@
     window.addEventListener('hide-delete-modal', event => {
         $('#confirmationModal').modal('hide');
         toastr.success(event.detail.message, 'Sucess!');
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#appointmentDate').datetimepicker({
+            format: 'L'
+        });
+
+        $('#appointmentDate').on("change.datetimepicker", function (e){
+            let date = $(this).data('appointmentdate');
+            eval(date).set('state.date', $('#appointmentDateInput').val());
+        });
+
+        $('#appointmentTime').datetimepicker({
+            format: 'LT'
+        });
+
+        $('#appointmentTime').on("change.datetimepicker", function (e){
+            let time = $(this).data('appointmenttime');
+            eval(time).set('state.time', $('#appointmentTimeInput').val());
+        });
     });
 </script>
 

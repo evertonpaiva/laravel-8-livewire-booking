@@ -65,6 +65,8 @@
 
 <script src="{{ asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
+<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
+
 <script>
     $(document).ready(function(){
         toastr.options = {
@@ -114,6 +116,20 @@
             eval(time).set('state.time', $('#appointmentTimeInput').val());
         });
     });
+</script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#note' ) )
+        .then( editor => {
+            document.querySelector('#submit').addEventListener('click', () => {
+                let note = $('#note').data('note');
+                eval(note).set('state.note', editor.getData());
+            });
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
 </script>
 
 <livewire:scripts />
